@@ -63,4 +63,68 @@ function wpcodex_hide_email_shortcode( $atts , $content = null ) {
 }
 add_shortcode( 'email', 'wpcodex_hide_email_shortcode' );
 
+
+
+//Styling wp-login page
+function login_styles() { ?>
+ <style type="text/css">
+ body {
+     background: #e8b800 !important; /* Old browsers */
+     background: -moz-linear-gradient(45deg, #e8b800 0%, #fce48a 100%) !important; /* FF3.6-15 */
+     background: -webkit-linear-gradient(45deg, #e8b800 0%, #fce48a 100%) !important;
+     /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(45deg, #e8b800 0%, #fce48a 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e8b800', endColorstr='#000', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+     background-attachment: fixed !important;
+ }
+ #wp-submit {
+     border: none !important;
+     box-shadow: none !important;
+     background: #000 !important;
+     text-shadow: none !important;
+     border-radius: 4px !important;
+     -webkit-border-radius: 4px !important;
+     color: #fff !important;
+     display: block;
+     width: 100% !important;
+     margin: 30px 0 0 0 !important;
+     font-size: 16px;
+     padding: 5px 0 !important;
+     height: auto !important;
+     transition: all 0.5s;
+ }
+ #wp-submit:hover {
+     background: #e8b800 !important;
+ }
+ .login h1 a {
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/nork-wordpress.png') !important;
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/nork-wordpress.png') !important;
+     background-size: 100% !important;
+     background-position: center center !important;
+     background-repeat: no-repeat;
+     height: auto !important;
+     width: auto !important;
+ }
+ .login #backtoblog a,
+ .login #nav a {
+     color: #fff !important;
+ }
+ </style>
+<?php }
+
+add_action('login_enqueue_scripts', 'login_styles');
+
+// Link logo login
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+// Mudar nome ao passar o mouse
+function my_login_logo_url_title() {
+    return 'Nork Digital';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
 ?>
+

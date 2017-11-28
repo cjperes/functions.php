@@ -102,8 +102,8 @@ function login_styles() { ?>
      background-size: 100% !important;
      background-position: center center !important;
      background-repeat: no-repeat;
-     height: auto !important;
-     width: auto !important;
+     height: 74px !important;
+     width: 250px !important;
  }
  .login #backtoblog a,
  .login #nav a {

@@ -1,0 +1,20 @@
+Randomly Change Background Color in WordPress
+Do you want to randomly change background color on your WordPress upon each visit and page reload? Here is how to easily do this.
+
+First you need to add this code to your theme’s functions file.
+
+
+function wpb_bg() { 
+$rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+$color ='#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].
+$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
+echo $color;
+}
+
+
+Next, you’ll need to edit the header.php file in your theme. Locate the <body> tag and add replace it with this line:
+
+
+<body <?php body_class(); ?> style="background-color:<?php wpb_bg();?>">>
+
+
